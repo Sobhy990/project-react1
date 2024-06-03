@@ -7,7 +7,7 @@ import Javascript from "./pages/Javascript";
 const App = () => {
   return (
     <div className="App">
-      <h1 style={{ color: "red" }}>Welecome to React !</h1>
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/html" element={<Html />} />

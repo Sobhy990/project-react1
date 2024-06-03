@@ -1,17 +1,15 @@
-import Footer from "../cmop/Footer"
-import Header from "../cmop/Header"
+import Footer from "../cmop/Footer";
+import Header from "../cmop/Header";
 
 const Css = () => {
   return (
     <>
-<Header/>
+      <Header />
 
-<main>
-    Css page
-      </main>
-<Footer/>
+      <main>Css page</main>
+      <Footer />
     </>
-  )
-}
+  );
+};
 
-export default Css
+export default Css;

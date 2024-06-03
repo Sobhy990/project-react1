@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import HTML from "./pages/Html";
 import CSS from "./pages/Css";
 import JAVA from "./pages/Javascript";
+import App from "./App";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -33,6 +34,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
+        
     <RouterProvider router={router} />
+
   </React.StrictMode>
 );
