@@ -7,13 +7,15 @@ import Javascript from "./pages/Javascript";
 const App = () => {
   return (
     <div className="App">
-
+        
+  
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/html" element={<Html />} />
         <Route path="/css" element={<Css />} />
         <Route path="/Javascript" element={<Javascript />} />
       </Routes>
+
     </div>
   );
 };
