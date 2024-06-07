@@ -4,7 +4,8 @@ import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 
 import App from "./App";
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import {  HelmetProvider } from "react-helmet-async";
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -17,3 +18,4 @@ root.render(
     </BrowserRouter>
   </React.StrictMode>
 );
+serviceWorkerRegistration.register();
