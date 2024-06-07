@@ -81,7 +81,7 @@ const Header = () => {
             <input id="html" type="checkbox" />
             <ul className="sub-div">
               <li>
-                <a href="">Full Course</a>
+                <NavLink to="/html">Full Course</NavLink>
               </li>
               <li>
                 <a href="">Crash Course</a>
@@ -98,7 +98,7 @@ const Header = () => {
             <input id="css" type="checkbox" />
             <ul className="sub-div">
               <li>
-                <a href="">Full Course</a>
+                <NavLink to="/css">Full Course</NavLink>
               </li>
               <li>
                 <a href="">CSS Examples</a>
@@ -129,7 +129,7 @@ const Header = () => {
             <input id="js" type="checkbox" />
             <ul className="sub-div">
               <li>
-                <a href="">coming soon🔥</a>
+                <NavLink to="/javascript">coming soon🔥</NavLink>
               </li>
             </ul>
           </div>
