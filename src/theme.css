@@ -1,0 +1,45 @@
+.theme-btn {
+  outline: 0;
+  cursor: pointer;
+  padding: 0.3rem 0.5rem;
+  font-size: 1.2rem;
+  background-color: transparent;
+  border: 1.5px solid #ddd;
+  border-radius: 1rem;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+.theme-btn:hover {
+  box-shadow: 0 0 10px #555, 0 0 40px #555, 0 0 80px #555;
+  background-color: #fc4364;
+  border: none;
+  outline: 0;
+}
+.theme-btn:focus {
+  padding: 4px 12px;
+  box-shadow: 0 0 10px #555, 0 0 40px #555, 0 0 80px #555;
+  box-shadow: 0 0 5 #3d4a59, 0 0 6px #fff;
+}
+
+/* ==============================
+     Dark Mode
+=============================== */
+
+.dark {
+  background-color: #242424;
+  color: rgb(240, 233, 233);
+}
+
+.dark main {
+  color: #fff;
+}
+
+.dark .teal {
+  background-color: #3d3c3c !important;
+}
+
+.light {
+  background-color: rgb(255, 255, 255);
+  color: rgb(250, 250, 250);
+}

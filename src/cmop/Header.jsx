@@ -1,15 +1,28 @@
 import React from "react";
-import {Link,NavLink} from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
+
+import "../theme.css";
+import { useContext } from "react";
+import ThemeContext from "../context/ThemeContext";
 const Header = () => {
+  const { theme, ToggleTheme } = useContext(ThemeContext);
   return (
     <>
       <header className="hide-when-mobile teal">
         <h1>
-          <Link to="/">
-          Store
-          </Link>
+          <Link to="/">Store</Link>
         </h1>
+
+        <button
+          onClick={() => {
+            ToggleTheme(theme === "light" ? "dark" : "light");
+          }}
+          className="theme-btn"
+        >
+          {theme}
+        </button>
+
         <ul className="flex">
           <li className="main-list">
             <NavLink className="main-link" to="/html">
@@ -67,7 +80,7 @@ const Header = () => {
         </ul>
       </header>
 
-      <header  className="show-when-mobile teal">
+      <header className="show-when-mobile teal">
         <h1>Courses 4 Arab</h1>
         <label className="absolute" htmlFor="burger">
           <i className="fas fa-bars" />

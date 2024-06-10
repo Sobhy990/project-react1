@@ -10,6 +10,7 @@
 .hide-when-mobile {
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 
@@ -30,3 +31,4 @@
 .show-when-mobile.teal{
   background-color: teal;
 }
+
