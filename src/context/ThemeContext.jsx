@@ -1,7 +1,15 @@
 import { createContext, useReducer } from "react";
 const ThemeContexttt = createContext();
 
-const initialData = { theme: localStorage.getItem("mytheme") === null ? "light" : "dark"   };
+const initialData = {
+  theme:
+    localStorage.getItem("mytheme") == null
+      ? "light"
+      : localStorage.getItem("mytheme") === "light"
+      ? "light"
+      : "dark",
+};
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "CHANGE_THEME":

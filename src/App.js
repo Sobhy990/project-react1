@@ -5,6 +5,8 @@ import Css from "./pages/Css";
 import Javascript from "./pages/Javascript";
 import { useContext } from "react";
 import ThemeContext from "./context/ThemeContext";
+import Singin from "./pages/Singnin";
+import Singup from "./pages/Singup";
 const App = () => {
   const { theme } = useContext(ThemeContext);
   return (
@@ -14,6 +16,8 @@ const App = () => {
         <Route path="/html" element={<Html />} />
         <Route path="/css" element={<Css />} />
         <Route path="/Javascript" element={<Javascript />} />
+        <Route path="/singnin" element={<Singin />} />
+        <Route path="/singnup" element={<Singup />} />
       </Routes>
     </div>
   );

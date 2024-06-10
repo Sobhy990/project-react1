@@ -43,3 +43,26 @@
   background-color: rgb(255, 255, 255);
   color: rgb(250, 250, 250);
 }
+
+
+/* ==============================
+    Icon Sun & Mooooon
+=============================== */
+.light .fa-sun{
+  display: none;
+}
+.fa-sun{
+  color: orange;
+}
+.dark .fa-moon{
+  display: none;
+}
+
+.fa-sun ,.fa-moon{
+  font-size: 25px;
+}
+.fa-sun:hover ,.fa-moon:hover {
+  font-size: 28px;
+  transition: all 0.3s;
+  cursor: pointer;
+}

@@ -1,10 +1,11 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
-
+import singin from '../pages/Singnin'
 import "../theme.css";
 import { useContext } from "react";
 import ThemeContext from "../context/ThemeContext";
+import Singin from "../pages/Singnin";
 const Header = () => {
   const { theme, ToggleTheme } = useContext(ThemeContext);
   return (
@@ -14,33 +15,54 @@ const Header = () => {
           <Link to="/">Store</Link>
         </h1>
 
-        <button
+        {/* <button
           onClick={() => {
             ToggleTheme(theme === "light" ? "dark" : "light");
           }}
           className="theme-btn"
         >
           {theme}
-        </button>
+        </button> */}
+        <i
+          onClick={() => {
+            ToggleTheme(theme === "light" ? "dark" : "light");
+          }}
+          className="fa-solid fa-moon"
+        ></i>
+        <i
+          onClick={() => {
+            ToggleTheme(theme === "light" ? "dark" : "light");
+          }}
+          className="fa-solid fa-sun"
+        ></i>
 
         <ul className="flex">
+        <li className="main-list">
+            <NavLink className="main-link" to="/singnin">
+              Singn-in
+            </NavLink>
+            </li>
+            <li className="main-list">
+            <NavLink className="main-link" to="/singnup">
+              Singn-up
+            </NavLink>
+
+
+          </li>
+
+
+
+
           <li className="main-list">
             <NavLink className="main-link" to="/html">
               HTML
             </NavLink>
-            <ul className="sub-ul">
-              <li>
-                <a href="">Full Course</a>
-              </li>
-              <li>
-                <a href="">Crash Course</a>
-              </li>
-              <li>
-                <a href="">learn in 1h</a>
-              </li>
-            </ul>
+
+
+
           </li>
-          <li className="main-list">
+
+          {/* <li className="main-list">
             <NavLink className="main-link" to="/css">
               CSS
             </NavLink>
@@ -66,7 +88,7 @@ const Header = () => {
                 </ul>
               </li>
             </ul>
-          </li>
+          </li> */}
           <li className="main-list">
             <NavLink className="main-link" to="/javascript">
               JavaScript

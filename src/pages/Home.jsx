@@ -14,15 +14,12 @@ const Home = () => {
         <title>Home page</title>
         <meta name="description" content="HOME" />
       </Helmet>
-    
 
-          <Header />
-  
-          <Maincontent NamePage="HOME page" />
-  
-          <Footer />
-        
+      <Header />
 
+      <Maincontent NamePage="HOME page" />
+
+      <Footer />
     </>
   );
 };
