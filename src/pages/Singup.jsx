@@ -1,9 +1,17 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+import { useState } from "react";
 import Footer from "../cmop/Footer";
 import Header from "../cmop/Header";
 import { Link } from "react-router-dom";
+import { auth } from "../firebase/confing";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 import { Helmet } from "react-helmet-async";
+
 const singup = () => {
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+
   return (
     <>
       <Helmet>
@@ -12,15 +20,50 @@ const singup = () => {
       <Header />
 
       <main>
-      
         <form>
-        <p style={{fontSize:"25 px" , marginBottom:"22px"}}>Create New Account...<span>🧡</span></p>
-        <input type="text" placeholder="text" required/>
-          <input type="email" placeholder="Email" required/>
-          <input type="password"  placeholder="Password" required/>
-          <button>Singn Up</button>
+          <p style={{ fontSize: "25 px", marginBottom: "22px" }}>
+            Create New Account...<span>🧡</span>
+          </p>
+
+          <input
+            onChange={(eo) => {
+              setemail(eo.target.value);
+              // console.log(eo.target.value)
+            }}
+            type="email"
+            placeholder="Email"
+            required
+          />
+          <input
+            onChange={(eo) => {
+              setpassword(eo.target.value);
+            }}
+            type="password"
+            placeholder="Password"
+            required
+          />
+          <button
+            onClick={(eo) => {
+              eo.preventDefault()
+              createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                  // Signed up
+                  const user = userCredential.user;
+                  console.log("done");
+                  // ...
+                })
+                .catch((error) => {
+                  const errorCode = error.code;
+                  const errorMessage = error.message;
+                  console.log(errorMessage);
+                  // ..
+                });
+            }}
+          >
+            Singn Up
+          </button>
           <p className="account">
-             Have account go to <Link to="/singnin"> Sing-In</Link>
+            Have account go to <Link to="/singnin"> Sing-In</Link>
           </p>
         </form>
       </main>
