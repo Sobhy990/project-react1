@@ -44,7 +44,7 @@ const singup = () => {
           />
           <button
             onClick={(eo) => {
-              eo.preventDefault()
+              eo.preventDefault();
               createUserWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
                   // Signed up

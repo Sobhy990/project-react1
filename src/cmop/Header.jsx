@@ -1,15 +1,21 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
-import singin from '../pages/Singnin'
+import singin from "../pages/Singnin";
 import "../theme.css";
 import { useContext } from "react";
 import ThemeContext from "../context/ThemeContext";
 import Singin from "../pages/Singnin";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../firebase/confing";
+import { signOut } from "firebase/auth";
 const Header = () => {
+  const [user, loading, error] = useAuthState(auth);
   const { theme, ToggleTheme } = useContext(ThemeContext);
+
   return (
     <>
+      {user && <h3>done</h3>}
       <header className="hide-when-mobile teal">
         <h1>
           <Link to="/">Store</Link>
@@ -37,30 +43,57 @@ const Header = () => {
         ></i>
 
         <ul className="flex">
-        <li className="main-list">
-            <NavLink className="main-link" to="/singnin">
-              Singn-in
-            </NavLink>
-            </li>
+          {!user && (
             <li className="main-list">
-            <NavLink className="main-link" to="/singnup">
-              Singn-up
-            </NavLink>
+              <NavLink className="main-link" to="/singnin">
+                Singn-in
+              </NavLink>
+            </li>
+          )}
+          {!user && (
+            <li className="main-list">
+              <NavLink className="main-link" to="/singnup">
+                Singn-up
+              </NavLink>
+            </li>
+          )}
 
+          {user && (
+            <li
+              onClick={() => {
+                signOut(auth)
+                  .then(() => {
+                    // Sign-out successful.
+                  })
+                  .catch((error) => {
+                    // An error happened.
+                  });
+              }}
+              className="main-list"
+            >
+              <NavLink className="main-link">Singn-out</NavLink>
+            </li>
+          )}
 
-          </li>
+          {user && (
+            <li className="main-list">
+              <NavLink className="main-link" to="/html">
+                HTML
+              </NavLink>
 
-
-
-
-          <li className="main-list">
-            <NavLink className="main-link" to="/html">
-              HTML
-            </NavLink>
-
-
-
-          </li>
+              <ul className="sub-ul">
+                <li>
+                  <a href="">Full Course</a>
+                </li>
+                <li>
+                  <a href="">Crash Courses</a>
+                </li>
+                <li>
+                  <a href="">Learn in 1h</a>
+                </li>
+              </ul>
+            </li>
+          )}
 
           {/* <li className="main-list">
             <NavLink className="main-link" to="/css">
@@ -89,16 +122,18 @@ const Header = () => {
               </li>
             </ul>
           </li> */}
-          <li className="main-list">
-            <NavLink className="main-link" to="/javascript">
-              JavaScript
-            </NavLink>
-            <ul className="sub-ul sub-of-js">
-              <li>
-                <a href="">coming soon🔥</a>
-              </li>
-            </ul>
-          </li>
+          {user && (
+            <li className="main-list">
+              <NavLink className="main-link" to="/javascript">
+                JavaScript
+              </NavLink>
+              <ul className="sub-ul sub-of-js">
+                <li>
+                  <a href="">coming soon🔥</a>
+                </li>
+              </ul>
+            </li>
+          )}
         </ul>
       </header>
 
