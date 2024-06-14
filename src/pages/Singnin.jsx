@@ -6,10 +6,16 @@ import Header from "../cmop/Header";
 import { Helmet } from "react-helmet-async";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase/confing";
+import { useNavigate } from "react-router-dom";
 
 const Singnin = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
+  const [hasError, sethasError] = useState(false);
+  const [firebaseError, setFirebaseError] = useState();
+
+  const navigate = useNavigate();
+
   return (
     <>
       <Helmet>
@@ -37,19 +43,24 @@ const Singnin = () => {
           />
           <button
             onClick={(eo) => {
-eo.preventDefault()
+              eo.preventDefault();
               signInWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
                   // Signed in
                   const user = userCredential.user;
-                  console.log(user)
+                  console.log(user);
+                  navigate("/");
+
                   // ...
                 })
+
                 .catch((error) => {
                   const errorCode = error.code;
-                
+
                   const errorMessage = error.message;
-                  console.log(errorMessage)
+                  console.log(errorMessage);
+                  sethasError(true);
+                  setFirebaseError(errorCode);
                 });
             }}
           >
@@ -58,6 +69,7 @@ eo.preventDefault()
           <p className="account">
             Don't have an account <Link to="/singnup"> Sing-Up</Link>
           </p>
+          {hasError && <h2>{firebaseError}</h2>}
         </form>
       </main>
 

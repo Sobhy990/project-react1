@@ -15,7 +15,6 @@ const Header = () => {
 
   return (
     <>
-      {user && <h3>done</h3>}
       <header className="hide-when-mobile teal">
         <h1>
           <Link to="/">Store</Link>

@@ -7,8 +7,11 @@ import { auth } from "../firebase/confing";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 import { Helmet } from "react-helmet-async";
+import { useNavigate } from "react-router-dom";
 
 const singup = () => {
+  const navigate = useNavigate();
+
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
 
@@ -50,6 +53,8 @@ const singup = () => {
                   // Signed up
                   const user = userCredential.user;
                   console.log("done");
+                  navigate("/");
+
                   // ...
                 })
                 .catch((error) => {
